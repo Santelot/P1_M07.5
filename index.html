@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P1-M07.5</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #ffeb3b;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            // Mostrar todas las actividades por defecto
+            document.getElementById('activity-2').style.display = 'block';
+            document.getElementById('activity-4-step-6').style.display = 'block';
+            document.getElementById('activity-4-step-7').style.display = 'block';
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none'; // Eliminar actividad 2
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none'; // Eliminar actividad 2
+                document.getElementById('activity-4-step-6').style.display = 'none'; // Eliminar paso 6 de la actividad 4
+                document.getElementById('activity-4-step-7').style.display = 'none'; // Eliminar paso 7 de la actividad 4
+            }
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<div class="header">
+    <h1>Playbook-P1-M07.5</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+    <!-- Actividad 0: Revisión de Misión -->
+    <div id="activity-0" class="activity">
+        <div class="banner" onclick="toggleContent('revision_materiales')">
+            <div class="title">📚 Actividad 0: Revisión de Misión ⏰ Tiempo: No especificado</div>
+            <div class="subtitle">Revisar los materiales necesarios para la misión.</div>
+        </div>
+        <div id="revision_materiales" class="content">
+            <table>
+                <tr>
+                    <td><strong>PASO 1:</strong> Proyectar Diapositiva 1: Revisar los materiales (computadoras con acceso a la página del juego, mouse y Magic Tablets).</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> Revisión interna, no requiere diálogo.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- Actividad 1: Saludo y Ritual Gnius Club -->
+    <div id="activity-1" class="activity">
+        <div class="banner" onclick="toggleContent('saludo_ritual_gnius')">
+            <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 4 minutos</div>
+            <div class="subtitle">Saludar a los estudiantes e introducir los objetivos de la misión.</div>
+        </div>
+        <div id="saludo_ritual_gnius" class="content">
+            <table>
+                <tr>
+                    <td><strong>PASO 1 (1 minuto):</strong> Proyectar Diapositiva 2: Saludar a los estudiantes con entusiasmo y hablar sobre la misión del día.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Hola, Genios! Hoy tenemos una misión muy especial: ¡liberar búhos atrapados en burbujas! Vamos a utilizar nuestras habilidades con el mouse para completar esta misión. ¿Están listos?"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 2 (1.5 minutos):</strong> Proyectar Diapositiva 3: Mostrar las dos poses: brazos levantados para indicar energía y manos cruzadas para indicar que necesitan más impulso.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, si están súper emocionados por liberar a los búhos, levanten los brazos bien alto. Si necesitan un poco más de energía, crucen los brazos y respiren profundo para recargar."</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 4: Guiar el ritual de agradecimiento.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Gracias por estar aquí, Genios. Hoy vamos a divertirnos aprendiendo y practicando nuestras habilidades con el mouse. ¡Es un gran día para aprender juntos!"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 5: Explicar los tres grandes objetivos del día: mejorar el uso del mouse y liberar a los búhos atrapados lo más rápido posible, además de compartir en equipo.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy tenemos tres grandes objetivos: 1) Practicar cómo hacer clic correctamente con el mouse. 2) Liberar a todos los búhos atrapados en burbujas lo más rápido posible."</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- Actividad 2: State Change -->
+    <div id="activity-2" class="activity">
+        <div class="banner" onclick="toggleContent('state_change')">
+            <div class="title">💥 Actividad 2: State Change ⏰ Tiempo: 5 minutos</div>
+            <div class="subtitle">Actividad física para preparar a los estudiantes para la misión.</div>
+        </div>
+        <div id="state_change" class="content">
+            <table>
+                <tr>
+                    <td><strong>PASO 1 (3 minutos):</strong> Proyectar Diapositiva 6: Explicar la actividad física: los estudiantes simularán explotar burbujas en el aire.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Genios! Vamos a prepararnos para liberar búhos atrapados en burbujas. Imaginen que están explotando grandes burbujas en el aire. ¡Cada vez que diga 'burbuja!', levanten las manos y hagan el gesto de explotarlas! ¿Listos? ¡Vamos a liberar a esos búhos!"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 7: Los estudiantes realizarán gestos grandes para simular los clics en las burbujas del juego.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Burbuja! ¡Otra burbuja! Piensen en sus manos como el mouse. Deben ser rápidos para liberar a todos los búhos antes de que las burbujas desaparezcan."</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- Actividad 3: Challenge -->
+    <div id="activity-3" class="activity">
+        <div class="banner" onclick="toggleContent('challenge')">
+            <div class="title">🎮 Actividad 3: Challenge ⏰ Tiempo: 26 minutos</div>
+            <div class="subtitle">Reto de liberar búhos atrapados en burbujas mediante el uso del mouse.</div>
+        </div>
+        <div id="challenge" class="content">
+            <table>
+                <tr>
+                    <td><strong>PASO 1 (1 minuto):</strong> Proyectar Diapositiva 8: Explicar el desafío de liberar a los búhos atrapados en las burbujas, haciendo clic lo más rápido posible.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Genios, es hora del reto! Vamos a visitar la página del juego 'Juguemos con Burbujas'. Su desafío es liberar a todos los búhos atrapados en las burbujas haciendo clic rápido y preciso. ¡Vamos a empezar!"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 9: Indicar a los estudiantes que presionen el botón "Jugar" en la página del juego.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Todos deben presionar el botón 'Jugar' para empezar a liberar a los búhos. ¡Vamos a ver quién logra liberar más en menos tiempo!"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 3 (20 minutos):</strong> Proyectar Diapositiva 10: Iniciar un temporizador de 20 minutos mientras los estudiantes juegan varias rondas del juego.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Tienen 20 minutos para jugar y practicar. Recuerden, el objetivo es liberar a todos los búhos lo más rápido posible. ¡A explotar esas burbujas!"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 4 (3 minutos):</strong> Proyectar Diapositiva 11: Reflexionar sobre las técnicas utilizadas y cómo mejorar para la próxima vez.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora que han jugado varias veces, ¿cómo creen que pueden mejorar la velocidad y precisión de sus clics? ¿Hay algo que podrían hacer mejor?"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 5 (1 minuto):</strong> Proyectar Diapositiva 12: Reflexionar sobre el éxito en el reto y animar a los estudiantes para futuros desafíos.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Gran trabajo, Genios! Han mejorado mucho en la precisión y rapidez con el mouse. La próxima vez, les retaré a ser aún más rápidos. ¿Listos para más desafíos?"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 6 (1 minuto):</strong> Proyectar Diapositiva 13: Hacer una breve revisión de los objetivos de la clase.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de terminar, revisemos nuestros objetivos: ¿Hemos mejorado en hacer clic rápido y preciso? ¿Logramos liberar a todos los búhos? ¡Misión cumplida!"</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- Actividad 4: Team Gnius -->
+    <div id="activity-4" class="activity">
+        <div class="banner" onclick="toggleContent('team_gnius')">
+            <div class="title">🤝 Actividad 4: Team Gnius ⏰ Tiempo: 11.5 minutos</div>
+            <div class="subtitle">Formación de equipos y trabajo colaborativo.</div>
+        </div>
+        <div id="team_gnius" class="content">
+            <table>
+                <tr>
+                    <td><strong>PASO 1 (1 minuto):</strong> Proyectar Diapositiva 14: Explicar que se formarán equipos de 2 estudiantes para que uno observe y el otro juegue, dando retroalimentación.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, ahora vamos a trabajar en equipos de 2. Uno de ustedes jugará mientras el otro observa y da sugerencias sobre cómo mejorar los clics. Luego, intercambiarán roles."</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 2 (0.5 minutos):</strong> Proyectar Diapositiva 15: Temporizador de 30 segundos para que los estudiantes se organicen en equipos.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Tienen 30 segundos para formar sus equipos y organizarse. ¡Vamos, que el tiempo corre!"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 16: Instruir a los estudiantes para que un integrante de cada equipo recoja las Magic Tablets.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de comenzar, un integrante de cada equipo debe ir a recoger las Magic Tablets. ¡Solo uno por equipo!"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 17: Temporizador de 30 segundos para que los equipos recojan las Magic Tablets.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Tienen 30 segundos para que un integrante de cada equipo recoja las Magic Tablets. ¡Rápido, que el tiempo corre!"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 5 (4 minutos):</strong> Proyectar Diapositiva 18: Dar 4 minutos para que uno de los estudiantes juegue mientras el otro observa y toma notas.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Uno de ustedes jugará mientras el otro observa y toma notas. Luego intercambiarán roles. ¡Tienen 4 minutos para cada turno!"</td>
+                </tr>
+                <tr id="activity-4-step-6">
+                    <td><strong>PASO 6 (0.5 minutos):</strong> Proyectar Diapositiva 19: Temporizador de 30 segundos para intercambiar roles.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Es hora de cambiar de roles. ¡Tienen 30 segundos para intercambiarse!"</td>
+                </tr>
+                <tr id="activity-4-step-7">
+                    <td><strong>PASO 7 (4 minutos):</strong> Proyectar Diapositiva 20: Dar otros 4 minutos para que el estudiante que observó juegue mientras el otro toma notas.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora el que estaba observando va a jugar, y el que ya jugó tomará notas para sugerir mejoras. ¡Vamos a ver cómo lo hacen!"</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- Actividad 5: Honor de Dojo -->
+    <div id="activity-5" class="activity">
+        <div class="banner" onclick="toggleContent('honor_dojo')">
+            <div class="title">🏅 Actividad 5: Honor de Dojo ⏰ Tiempo: 4 minutos</div>
+            <div class="subtitle">Reflexión sobre el trabajo en equipo y cierre de la misión.</div>
+        </div>
+        <div id="honor_dojo" class="content">
+            <table>
+                <tr>
+                    <td><strong>PASO 1 (1 minuto):</strong> Proyectar Diapositiva 21: Mostrar los objetivos alcanzados y hacer una revisión rápida.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, antes de terminar, repasemos lo que logramos hoy. Practicamos con el mouse, liberamos búhos atrapados en burbujas, y trabajamos en equipo. ¡Gran trabajo, misión cumplida!"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 2 (1 minuto):</strong> Sin diapositiva: Agradecer a todos por su esfuerzo y reconocer el trabajo en equipo.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy todos ustedes trabajaron muy bien. ¡Su habilidad para liberar a los búhos y colaborar en equipo fue impresionante! ¡Gran trabajo, equipo!"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 22: Guiar una reflexión sobre el trabajo en equipo y las áreas de mejora.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Reflexionemos juntos: ¿Cómo ayudó el trabajo en equipo a mejorar sus habilidades con el mouse? ¿Qué parte fue la más divertida o desafiante?"</td>
+                </tr>
+                <tr>
+                    <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 23: Motivar a los estudiantes a recoger su espacio de trabajo, dejando todo en orden.</td>
+                    <td><strong>DIÁLOGO SUGERIDO:</strong> "Para terminar, honremos nuestro espacio de trabajo organizando y recogiendo todo lo que usamos hoy. ¡Un buen genio siempre deja todo limpio y en orden!"</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div> <!-- Cierre del container -->
+
+    <!-- Scripts adicionales si es necesario -->
+    <script>
+        // Agregar scripts adicionales aquí si es necesario
+    </script>
+
+</body>
+</html>
